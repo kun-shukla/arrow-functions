@@ -14,11 +14,10 @@
 
 // Arrow Function With Parameters
 
-// const printMessage = (message) => console.log(message);
-
-// printMessage("Hello there");
-
 // Single Line Arrow Function With Parameters
+
+// const printMessage = (message) => console.log(message);
+// printMessage("Hello there");
 
 // Implicit Returns
 
@@ -45,33 +44,40 @@ let students = [
   },
 ];
 
-// console.log(students[2].results.);
-
 // You will create a function using the arrow syntax that should return the average marks of a subject.
 // Your function should loop through the array that is passed in. For each student contained within, you should: 1. Check if the subject passed into your function is in said student's results object; 2. If it is, add it to a cumulative total of all results for that subject. 3. Finally, return the average result for the subject.
 // You will only be asked to return the average marks for the subject english, but your function must be able to return the average marks if another subject name is used, and the tests will check for this.
 
-// {
-//     name: 'Adam',
-//     subjects: ['science', 'maths', 'art'],
-//     teacher: {science: 'Iris', maths: 'Harry', art: 'Simon'},
-//     results: {science: 63, maths: 79, art: 95},
+// function averageScore(subject) {
+//   let scoresArray = [];
+//   let subjectScore = 0;
+//   for (let i = 0; i < students.length; i++)
+//     if (students[i].results.subject) {
+//       scoresArray.push(students[i].results.subject);
+//     }
+//   console.log(scoresArray);
+//   for (score of scoresArray) {
+//     subjectScore += score;
+//   }
+//   return subjectScore / scoresArray.length;
 // }
 
-function averageScore(subject) {
-  let scoresArray = [];
-  let subjectScore = 0;
-  let subject;
-  for (let i = 0; i < students.length; i++)
-    if (students[i].results.subject) {
-      scoresArray.push(students[i].results.subject);
-    }
-  console.log(scoresArray);
-  for (score of scoresArray) {
-    subjectScore += score;
-  }
-  return subjectScore / scoresArray.length;
-}
+// let result = averageScore("english");
+// console.log(result);
 
-let result = averageScore("english");
-console.log(result);
+const averagePoints = (subject) => {
+  let pointsArray = [];
+  let totalPoints = 0;
+  for (eachObject of students) {
+    if (eachObject.results[subject]) {
+      pointsArray.push(eachObject.results[subject]);
+    }
+  }
+  console.log(pointsArray);
+  for (eachItem of pointsArray) {
+    totalPoints += eachItem;
+  }
+  return totalPoints / pointsArray.length;
+};
+let averageMarks = averagePoints("english");
+console.log(averageMarks);
